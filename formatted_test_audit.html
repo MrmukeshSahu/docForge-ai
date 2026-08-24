@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit & Readability Report - mock_input</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 30px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { color: #3b82f6; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .card { background: #1e293b; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #334155; }
+        .card .val { font-size: 24px; font-weight: bold; color: #10b981; margin-top: 5px; }
+        .section { background: #1e293b; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #334155; }
+        h2 { color: #60a5fa; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #334155; }
+        th { background: #0f172a; color: #94a3b8; }
+        code { background: #334155; padding: 2px 6px; border-radius: 4px; color: #f43f5e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Audit & Readability Report: mock_input</h1>
+        <div class="grid">
+            <div class="card"><div>Readability Score</div><div class="val">19.1</div></div>
+            <div class="card"><div>Grade Level</div><div class="val">14.0</div></div>
+            <div class="card"><div>Total Words</div><div class="val">4891</div></div>
+            <div class="card"><div>Reading Time</div><div class="val">24.5 min</div></div>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Overused & High-Frequency Words Alert</h2>
+            <table>
+                <thead><tr><th>Word</th><th>Frequency Count</th></tr></thead>
+                <tbody><tr><td><code>dolor</code></td><td>142 times</td></tr><tr><td><code>dolore</code></td><td>132 times</td></tr><tr><td><code>lorem</code></td><td>81 times</td></tr><tr><td><code>ipsum</code></td><td>81 times</td></tr><tr><td><code>amet</code></td><td>81 times</td></tr><tr><td><code>consectetur</code></td><td>81 times</td></tr><tr><td><code>adipiscing</code></td><td>81 times</td></tr><tr><td><code>elit</code></td><td>81 times</td></tr><tr><td><code>eiusmod</code></td><td>81 times</td></tr><tr><td><code>tempor</code></td><td>81 times</td></tr></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>📑 Document Element Breakdown</h2>
+            <table>
+                <thead><tr><th>Element Component</th><th>Count</th></tr></thead>
+                <tbody><tr><td>Author</td><td>2</td></tr><tr><td>Code Block</td><td>31</td></tr><tr><td>Heading 1</td><td>10</td></tr><tr><td>Heading 2</td><td>10</td></tr><tr><td>Caption</td><td>32</td></tr><tr><td>References Heading</td><td>1</td></tr></tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Low Confidence Review Audit List</h2>
+            <table>
+                <thead><tr><th>#</th><th>Classification</th><th>Confidence</th><th>Snippet</th></tr></thead>
+                <tbody><tr><td>#1</td><td>Author</td><td>53%</td><td>THE IMPACT OF MACHINE LEARNING ON PUBLISHING...</td></tr><tr><td>#3</td><td>Code Block</td><td>49%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#5</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#7</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#9</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#11</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#13</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#15</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#17</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#19</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#21</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#23</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#25</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#27</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#29</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#31</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#33</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#35</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#37</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#39</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#41</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#43</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#45</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#47</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#49</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#51</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#53</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#55</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#57</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#59</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#61</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#63</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#65</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#67</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#69</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#71</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#73</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#75</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#77</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#79</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#81</td><td>Caption</td><td>58%</td><td>* Second point which is also very important....</td></tr><tr><td>#83</td><td>Code Block</td><td>42%</td><td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i...</td></tr><tr><td>#86</td><td>Caption</td><td>40%</td><td>2. Smith, A. (2022). Automated Document Analysis. Academic Journal....</td></tr></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

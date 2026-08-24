@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Output & Generated Test Files
+formatted_*
+history_log.json
+mock_input.docx
+_exclude_from_git/

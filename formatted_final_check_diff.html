@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Side-by-Side Document Diff Comparison</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0F19; color: #F8FAFC; margin: 0; padding: 25px; }
+        h1 { color: #3B82F6; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; line-height: 1.5; }
+        th, td { padding: 12px; border: 1px solid #334155; text-align: left; }
+        th { background: #1E293B; color: #94A3B8; font-size: 13px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <h1>⚖️ Side-by-Side Document Comparison & Diff</h1>
+    <p style="color: #94A3B8;">Comparing Original Manuscript vs Formatted Publication Output</p>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Original Manuscript Text</th>
+                <th>Formatted Output & Classification</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#1</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">MOCK_INPUT</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>References Heading</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    MOCK_INPUT
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#2</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">OFFICIAL PUBLICATION MANUSCRIPT</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>References Heading</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    OFFICIAL PUBLICATION MANUSCRIPT
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#3</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Prepared by: Author Name</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Prepared by: Author Name
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#4</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">August 2026</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Author</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    August 2026
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#5</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">THE IMPACT OF MACHINE LEARNING ON PUBLISHING</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Author</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    THE IMPACT OF MACHINE LEARNING ON PUBLISHING
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#6</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">By John Doe</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Author</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    By John Doe
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#7</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#8</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 1: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 1: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#9</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#10</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">1.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    1.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#11</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#12</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#13</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#14</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 1.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 1.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#15</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#16</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 2: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 2: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#17</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#18</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">2.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    2.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#19</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#20</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#21</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#22</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 2.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 2.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#23</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#24</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 3: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 3: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#25</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#26</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">3.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    3.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#27</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#28</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#29</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#30</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 3.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 3.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#31</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#32</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 4: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 4: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#33</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#34</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">4.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    4.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#35</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#36</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#37</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#38</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 4.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 4.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#39</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#40</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 5: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 5: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#41</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#42</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">5.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    5.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#43</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#44</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#45</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#46</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 5.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 5.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#47</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#48</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 6: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 6: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#49</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#50</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">6.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    6.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#51</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#52</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#53</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#54</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 6.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 6.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#55</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#56</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 7: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 7: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#57</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#58</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">7.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    7.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#59</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#60</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#61</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#62</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 7.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 7.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#63</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#64</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 8: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 8: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#65</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#66</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">8.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    8.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#67</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#68</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#69</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#70</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 8.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 8.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#71</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#72</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 9: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 9: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#73</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#74</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">9.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    9.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#75</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#76</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#77</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#78</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 9.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 9.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#79</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#80</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Chapter 10: Introduction to Automation</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 1</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Chapter 10: Introduction to Automation
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#81</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#82</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">10.1 Historical Context</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Heading 2</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    10.1 Historical Context
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#83</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#84</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* First important point regarding the context.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * First important point regarding the context.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#85</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">* Second point which is also very important.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    * Second point which is also very important.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#86</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Figure 10.1: A generic placeholder for an image.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Figure 10.1: A generic placeholder for an image.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#87</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Code Block</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#88</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">References</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>References Heading</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    References
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#89</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">1. Doe, J. (2023). Publishing in the AI Era. Tech Press.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    1. Doe, J. (2023). Publishing in the AI Era. Tech Press.
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width: 5%; text-align: center; color: #94A3B8;">#90</td>
+                <td style="width: 45%; vertical-align: top; background: #1E293B;">2. Smith, A. (2022). Automated Document Analysis. Academic Journal.</td>
+                <td style="width: 50%; vertical-align: top; background: #0F172A;">
+                    <div style="font-size: 0.8em; color: #60A5FA; margin-bottom: 4px;"><strong>Caption</strong> <span style="color:#10B981;">[Formatted]</span></div>
+                    2. Smith, A. (2022). Automated Document Analysis. Academic Journal.
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>
