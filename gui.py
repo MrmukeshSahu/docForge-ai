@@ -434,12 +434,14 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         )
         self.cancel_btn.pack(side="left", padx=10)
 
-        # Progress and Status Box
-        self.progress_bar = ctk.CTkProgressBar(left_box, mode="determinate", progress_color=ACCENT_GREEN[1])
+        # Progress and Status Box (Permanently Packed & Visible)
+        self.progress_bar = ctk.CTkProgressBar(left_box, mode="determinate", height=14, progress_color=ACCENT_GREEN[1], corner_radius=7)
+        self.progress_bar.pack(fill="x", padx=20, pady=(15, 6))
         self.progress_bar.set(0)
 
-        self.single_status_lbl = ctk.CTkLabel(left_box, text="", font=ctk.CTkFont(size=13), text_color=TEXT_MAIN)
-        self.single_status_lbl.pack(pady=5)
+        self.single_status_lbl = ctk.CTkLabel(left_box, text="Ready to format document", font=ctk.CTkFont(size=13, weight="bold"), text_color=TEXT_MUTED)
+        self.single_status_lbl.pack(pady=(0, 10))
+
 
 
         # -------------------------------------------------------------
@@ -952,9 +954,9 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
 
         self.cancel_requested = False
         self.start_btn.configure(state="disabled", text="PROCESSING DOCUMENT...")
-        self.single_status_lbl.configure(text="Processing...", text_color=ACCENT_BLUE)
-        self.progress_bar.pack(fill="x", pady=5)
-        self.progress_bar.set(0)
+        self.single_status_lbl.configure(text="Processing document...", text_color=ACCENT_BLUE)
+        self.progress_bar.set(0.05)
+
 
         threading.Thread(target=self._run_single_formatting_thread, daemon=True).start()
 
