@@ -440,7 +440,36 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         self.progress_bar.set(0)
 
         self.single_status_lbl = ctk.CTkLabel(left_box, text="Ready to format document", font=ctk.CTkFont(size=13, weight="bold"), text_color=TEXT_MUTED)
-        self.single_status_lbl.pack(pady=(0, 10))
+        self.single_status_lbl.pack(pady=(0, 6))
+
+        # Direct 1-Click Open File & Folder Buttons (Appears on Success)
+        self.post_action_row = ctk.CTkFrame(left_box, fg_color="transparent")
+        self.open_file_btn = ctk.CTkButton(
+            self.post_action_row, 
+            text="📄 Open Formatted File", 
+            command=self.open_output_file_direct, 
+            fg_color=ACCENT_BLUE, 
+            hover_color=ACCENT_HOVER, 
+            text_color="#FFFFFF",
+            height=42, 
+            font=ctk.CTkFont(size=14, weight="bold"),
+            width=200
+        )
+        self.open_file_btn.pack(side="left", padx=8)
+
+        self.open_folder_btn = ctk.CTkButton(
+            self.post_action_row, 
+            text="📁 Open Save Folder", 
+            command=self.open_output_folder_direct, 
+            fg_color=SIDEBAR_BG, 
+            hover_color=CARD_BG, 
+            text_color=TEXT_MAIN, 
+            height=42, 
+            font=ctk.CTkFont(size=14, weight="bold"),
+            width=180
+        )
+        self.open_folder_btn.pack(side="left", padx=8)
+
 
 
 
@@ -953,9 +982,11 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             return
 
         self.cancel_requested = False
+        self.post_action_row.pack_forget()
         self.start_btn.configure(state="disabled", text="PROCESSING DOCUMENT...")
         self.single_status_lbl.configure(text="Processing document...", text_color=ACCENT_BLUE)
         self.progress_bar.set(0.05)
+
 
 
         threading.Thread(target=self._run_single_formatting_thread, daemon=True).start()
@@ -1101,16 +1132,39 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             self.log_message(f"❌ Error occurred: {e}")
             self.after(0, self._on_single_error, str(e))
 
+    def open_output_file_direct(self):
+        if self.output_file and os.path.exists(self.output_file):
+            try:
+                os.startfile(self.output_file)
+            except Exception as e:
+                messagebox.showerror("Error", f"Could not open file: {e}")
+        else:
+            messagebox.showerror("Error", "Formatted output file not found on disk.")
+
+    def open_output_folder_direct(self):
+        if self.output_file:
+            folder = os.path.dirname(self.output_file)
+            if os.path.exists(folder):
+                try:
+                    os.startfile(folder)
+                except Exception as e:
+                    messagebox.showerror("Error", f"Could not open folder: {e}")
+
     def _on_single_success(self, elapsed, count):
         self.progress_bar.set(1.0)
         self.single_status_lbl.configure(text=f"Success! Formatted {count} elements in {elapsed:.1f}s", text_color=ACCENT_GREEN)
         self.start_btn.configure(state="normal", text="🚀 START FORMATTING")
+        
+        # Show Direct 1-Click Open File & Folder Action Buttons
+        self.post_action_row.pack(anchor="center", pady=(8, 12))
+        
         messagebox.showinfo("Success", f"Document formatted successfully in {elapsed:.1f}s!\nSaved to: {self.output_file}")
 
     def _on_single_error(self, err):
         self.single_status_lbl.configure(text="Error occurred during processing.", text_color="#EF4444")
         self.start_btn.configure(state="normal", text="🚀 START FORMATTING")
         messagebox.showerror("Error", f"An error occurred:\n{err}")
+
 
     def start_batch_formatting(self):
         if not self.batch_input_dir or not os.path.exists(self.batch_input_dir):
