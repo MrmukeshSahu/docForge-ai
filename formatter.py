@@ -178,11 +178,11 @@ class DocumentFormatter:
                 pass
             self.heading1_count += 1
             if self.heading1_count > 1:
-                p.insert_paragraph_before().add_run().add_break(docx.enum.text.WD_BREAK.PAGE)
+                pf.page_break_before = True
             
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
-            pf.space_before = Pt(12)
+            pf.space_before = Pt(14)
             pf.space_after = Pt(6)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading1_size, bold=True, color_rgb=self.preset.heading_color_rgb)
@@ -194,7 +194,7 @@ class DocumentFormatter:
                 pass
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
-            pf.space_before = Pt(6)
+            pf.space_before = Pt(8)
             pf.space_after = Pt(4)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading2_size, bold=True, color_rgb=self.preset.heading_color_rgb)
@@ -206,7 +206,7 @@ class DocumentFormatter:
                 pass
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
-            pf.space_before = Pt(4)
+            pf.space_before = Pt(6)
             pf.space_after = Pt(2)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading3_size, bold=True, italic=True, color_rgb=self.preset.heading_color_rgb)
@@ -215,6 +215,8 @@ class DocumentFormatter:
         elif style_type == "Caption":
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
+            pf.space_before = Pt(4)
+            pf.space_after = Pt(6)
             self._set_font(p, self.preset.caption_size, italic=True)
             
         elif style_type == "List":
@@ -222,7 +224,9 @@ class DocumentFormatter:
             pf.first_line_indent = Cm(0)
             pf.left_indent = Cm(1.27)
             pf.line_spacing = self.preset.line_spacing
-            self._set_font(p, self.preset.body_size)
+            pf.space_before = Pt(2)
+            pf.space_after = Pt(2)
+            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
             
         elif style_type == "Code Block":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -231,7 +235,7 @@ class DocumentFormatter:
             pf.line_spacing = 1.15
             pf.space_before = Pt(4)
             pf.space_after = Pt(4)
-            self._set_font(p, self.preset.body_size - 1, font_name="Consolas")
+            self._set_font(p, self.preset.body_size - 1, font_name="Consolas", color_rgb=(15, 23, 42))
             
         elif style_type == "Blockquote":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -239,14 +243,18 @@ class DocumentFormatter:
             pf.left_indent = Cm(1.5)
             pf.right_indent = Cm(1.5)
             pf.line_spacing = self.preset.line_spacing
-            self._set_font(p, self.preset.body_size, italic=True)
+            pf.space_before = Pt(4)
+            pf.space_after = Pt(4)
+            self._set_font(p, self.preset.body_size, italic=True, color_rgb=(51, 65, 85))
             
         elif style_type == "Reference Item":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.left_indent = Cm(1.27)
             pf.first_line_indent = Cm(-1.27)
             pf.line_spacing = self.preset.line_spacing
-            self._set_font(p, self.preset.body_size)
+            pf.space_before = Pt(3)
+            pf.space_after = Pt(3)
+            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
             
         else:
             # Body Paragraph
@@ -254,8 +262,12 @@ class DocumentFormatter:
             pf.alignment = align_enum
             pf.first_line_indent = Cm(self.preset.first_line_indent_cm)
             pf.line_spacing = self.preset.line_spacing
-            pf.keep_together = True
-            self._set_font(p, self.preset.body_size)
+            pf.space_before = Pt(0)
+            pf.space_after = Pt(4)
+            pf.keep_together = False
+            pf.widow_control = True
+            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
+
 
     def add_review_comment(self, p):
         # Visual DOCX Comment for Low Confidence
