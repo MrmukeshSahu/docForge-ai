@@ -252,6 +252,24 @@ class PresetManager:
                         pass
         return presets
 
+    def export_preset_json(self, preset_id: str, file_path: str) -> bool:
+        """Exports a preset configuration to a .dfpreset JSON file."""
+        import json
+        preset = self.get_preset(preset_id)
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(preset.to_dict(), f, indent=4)
+        return True
+
+    def import_preset_json(self, file_path: str) -> StylePreset:
+        """Imports a .dfpreset JSON file and registers it."""
+        import json
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        preset = StylePreset.from_dict(data)
+        pid = data.get("name", "custom_imported").lower().replace(" ", "_")
+        self.presets[pid] = preset
+        return preset
+
     def save_custom_preset(self, preset_id: str, preset: StylePreset):
         path = os.path.join(self.custom_presets_dir, f"{preset_id}.json")
         with open(path, "w", encoding="utf-8") as f:

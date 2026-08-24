@@ -83,11 +83,17 @@ class DocumentFormatter:
         r_xml.append(fldChar3)
 
     def _format_tables(self):
-        for table in self.doc.tables:
-            try:
-                table.style = self.preset.table_style
-            except KeyError:
-                table.style = 'Table Grid'
+        try:
+            from table_visualizer import TableStylingEngine
+            hex_col = "%02x%02x%02x" % self.preset.primary_color_rgb
+            TableStylingEngine.apply_zebra_striping(self.doc, primary_color_hex=hex_col)
+        except Exception:
+            for table in self.doc.tables:
+                try:
+                    table.style = self.preset.table_style
+                except KeyError:
+                    table.style = 'Table Grid'
+
 
     def _set_font(self, p, size, bold=None, italic=None, font_name=None, color_rgb=None):
         target_font = font_name if font_name else self.preset.font_family

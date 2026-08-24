@@ -81,8 +81,12 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         self.opt_cover_page = ctk.BooleanVar(value=False)
         self.opt_zip_export = ctk.BooleanVar(value=False)
         self.opt_generate_diff = ctk.BooleanVar(value=True)
+        self.opt_watermark = ctk.StringVar(value="")
+        self.opt_acronyms = ctk.BooleanVar(value=False)
+        self.opt_parallel_batch = ctk.BooleanVar(value=True)
         self.opt_export_format = ctk.StringVar(value="all")
         self.watcher_obj = None
+
 
 
         # Root window Grid configuration for 100% Fullscreen Stretch
@@ -382,13 +386,21 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             text_color="#FFFFFF"
         ).pack(side="left", fill="x", expand=True)
 
-        # Row 4: Phase 2 Checkboxes
+        # Row 4: Watermark Entry
+        opt_wm = ctk.CTkFrame(dest_card, fg_color="transparent")
+        opt_wm.pack(fill="x", padx=24, pady=6)
+        ctk.CTkLabel(opt_wm, text="💧 Watermark:", text_color=TEXT_MAIN, font=ctk.CTkFont(size=13, weight="bold"), width=110, anchor="w").pack(side="left")
+        ctk.CTkEntry(opt_wm, textvariable=self.opt_watermark, placeholder_text="e.g. CONFIDENTIAL / DRAFT / INTERNAL ONLY", height=34).pack(side="left", fill="x", expand=True)
+
+        # Row 5: Phase 2 & 3 Checkboxes
         opt_row2 = ctk.CTkFrame(dest_card, fg_color="transparent")
         opt_row2.pack(anchor="center", pady=(14, 12))
 
-        ctk.CTkCheckBox(opt_row2, text="Auto Cover Page", variable=self.opt_cover_page, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=12)
-        ctk.CTkCheckBox(opt_row2, text="1-Click Zip Bundle", variable=self.opt_zip_export, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=12)
-        ctk.CTkCheckBox(opt_row2, text="Side-by-Side Diff", variable=self.opt_generate_diff, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=12)
+        ctk.CTkCheckBox(opt_row2, text="Auto Cover Page", variable=self.opt_cover_page, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
+        ctk.CTkCheckBox(opt_row2, text="1-Click Zip", variable=self.opt_zip_export, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
+        ctk.CTkCheckBox(opt_row2, text="Side Diff", variable=self.opt_generate_diff, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
+        ctk.CTkCheckBox(opt_row2, text="Acronyms Glossary", variable=self.opt_acronyms, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
+
 
         # Large Main Action Buttons Bar
         act_row = ctk.CTkFrame(left_box, fg_color="transparent")
@@ -522,6 +534,15 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
     def _create_presets_view(self):
         frame = ctk.CTkFrame(self.main_container, fg_color="transparent")
 
+        # Top Action Bar for JSON Preset Import/Export
+        top_bar = ctk.CTkFrame(frame, fg_color=CARD_BG, border_color=CARD_BORDER, border_width=1, corner_radius=10)
+        top_bar.pack(fill="x", pady=(0, 10), ipady=5)
+        
+        ctk.CTkLabel(top_bar, text="🎨 Custom Preset Studio (.dfpreset JSON)", font=ctk.CTkFont(size=14, weight="bold"), text_color=TEXT_MAIN).pack(side="left", padx=15)
+        
+        ctk.CTkButton(top_bar, text="📥 Import .dfpreset", command=self._gui_import_preset, fg_color=ACCENT_BLUE, text_color="#FFFFFF", height=28, width=130).pack(side="right", padx=10)
+        ctk.CTkButton(top_bar, text="📤 Export Active Preset", command=self._gui_export_preset, fg_color=SIDEBAR_BG, text_color=TEXT_MAIN, height=28, width=150).pack(side="right", padx=5)
+
         # Preset Cards Scrollable
         scroll = ctk.CTkScrollableFrame(frame, fg_color="transparent")
         scroll.pack(fill="both", expand=True)
@@ -552,6 +573,25 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             ctk.CTkLabel(card, text=details_text, text_color=TEXT_MAIN, font=ctk.CTkFont(size=11)).pack(anchor="w", padx=15)
 
         return frame
+
+    def _gui_import_preset(self):
+        f_path = filedialog.askopenfilename(title="Import Custom .dfpreset JSON", filetypes=[("JSON Files", "*.json;*.dfpreset"), ("All Files", "*.*")])
+        if f_path:
+            try:
+                p = self.preset_manager.import_preset_json(f_path)
+                messagebox.showinfo("Success", f"Successfully imported preset '{p.name}'!")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to import preset: {e}")
+
+    def _gui_export_preset(self):
+        f_path = filedialog.asksaveasfilename(title="Export Active Preset as .dfpreset JSON", defaultextension=".json", filetypes=[("JSON Files", "*.json"), ("All Files", "*.*")])
+        if f_path:
+            try:
+                self.preset_manager.export_preset_json(self.active_preset_id, f_path)
+                messagebox.showinfo("Success", f"Successfully exported preset to '{f_path}'!")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to export preset: {e}")
+
 
     def _create_batch_view(self):
         frame = ctk.CTkFrame(self.main_container, fg_color="transparent")
@@ -966,12 +1006,40 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
 
             if self.cancel_requested: return
 
+            # Watermark application
+            wm_text = self.opt_watermark.get().strip()
+            if wm_text:
+                from watermark import WatermarkGenerator
+                self.log_message(f"💧 Applying Watermark: '{wm_text}'...")
+                WatermarkGenerator.apply_watermark(doc, wm_text)
+
+            # Acronyms & Glossary Table Insertion
+            if self.opt_acronyms.get():
+                from acronym_extractor import AcronymGlossaryGenerator
+                acrs = AcronymGlossaryGenerator.extract_acronyms(self.classified_elements if self.classified_elements else elements)
+                if acrs:
+                    self.log_message(f"📑 Inserting Acronyms Glossary Table ({len(acrs)} terms)...")
+                    AcronymGlossaryGenerator.insert_acronyms_table(doc, acrs)
+
+            # Offline LaTeX Math Conversion
+            from math_converter import LaTeXMathConverter
+            maths_found = LaTeXMathConverter.process_latex_math(doc)
+            if maths_found > 0:
+                self.log_message(f"📐 Converted {maths_found} LaTeX formulas to OMML Math Equations.")
+
+            # Table Chart Generator
+            from table_visualizer import TableStylingEngine
+            charts_count = TableStylingEngine.generate_chart_for_numeric_tables(doc)
+            if charts_count > 0:
+                self.log_message(f"📊 Embedded {charts_count} Data Charts from numeric tables.")
+
             # Cover Page Generation
             if self.opt_cover_page.get():
                 from cover_page import CoverPageGenerator
                 self.log_message("📝 Inserting Title & Cover Page...")
                 t_str = os.path.splitext(os.path.basename(self.input_file))[0]
                 CoverPageGenerator.insert_cover_page(doc, title=t_str, preset_id=self.active_preset_id)
+
 
             preset = self.preset_manager.get_preset(self.active_preset_id)
             self.after(0, self.single_status_lbl.configure, {"text": f"Applying '{preset.name}' typography..."})
