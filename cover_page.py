@@ -25,7 +25,7 @@ class CoverPageGenerator:
         # Subtitle / Type
         p_sub = first_p.insert_paragraph_before()
         p_sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p_sub.paragraph_format.space_after = Pt(120)
+        p_sub.paragraph_format.space_after = Pt(36)
         run_sub = p_sub.add_run("OFFICIAL PUBLICATION MANUSCRIPT")
         run_sub.font.size = Pt(11)
         run_sub.font.bold = True
@@ -41,7 +41,7 @@ class CoverPageGenerator:
 
         p_date = first_p.insert_paragraph_before()
         p_date.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p_date.paragraph_format.space_after = Pt(24)
+        p_date.paragraph_format.space_after = Pt(18)
         run_date = p_date.add_run(time.strftime("%B %Y"))
         run_date.font.size = Pt(11)
         run_date.font.italic = True
@@ -49,4 +49,7 @@ class CoverPageGenerator:
 
         # Page Break after cover page
         p_break = first_p.insert_paragraph_before()
+        p_break.paragraph_format.space_before = Pt(0)
+        p_break.paragraph_format.space_after = Pt(0)
         p_break.add_run().add_break(docx.enum.text.WD_BREAK.PAGE)
+

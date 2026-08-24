@@ -151,6 +151,10 @@ class DocumentFormatter:
         pf.widow_control = True 
         
         if style_type == "Title":
+            try:
+                p.style = 'Title'
+            except Exception:
+                pass
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
             self._set_font(p, self.preset.title_size, bold=True, color_rgb=self.preset.heading_color_rgb)
@@ -164,6 +168,10 @@ class DocumentFormatter:
                 self._add_toc(p)
             
         elif style_type in ["Heading 1", "References Heading"]:
+            try:
+                p.style = 'Heading 1'
+            except Exception:
+                pass
             self.heading1_count += 1
             if self.heading1_count > 1:
                 p.insert_paragraph_before().add_run().add_break(docx.enum.text.WD_BREAK.PAGE)
@@ -176,6 +184,10 @@ class DocumentFormatter:
             self._set_font(p, self.preset.heading1_size, bold=True, color_rgb=self.preset.heading_color_rgb)
             
         elif style_type in ["Subheading", "Heading 2"]:
+            try:
+                p.style = 'Heading 2'
+            except Exception:
+                pass
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
             pf.space_before = Pt(6)
@@ -184,12 +196,17 @@ class DocumentFormatter:
             self._set_font(p, self.preset.heading2_size, bold=True, color_rgb=self.preset.heading_color_rgb)
             
         elif style_type == "Heading 3":
+            try:
+                p.style = 'Heading 3'
+            except Exception:
+                pass
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
             pf.space_before = Pt(4)
             pf.space_after = Pt(2)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading3_size, bold=True, italic=True, color_rgb=self.preset.heading_color_rgb)
+
             
         elif style_type == "Caption":
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -283,9 +300,7 @@ class DocumentFormatter:
                 cls = "Reference Item"
                 
             self._apply_paragraph_style(p, cls)
-            
-            if review_needed:
-                self.add_review_comment(p)
+
 
             
     def save(self, output_path):
