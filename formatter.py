@@ -177,17 +177,16 @@ class DocumentFormatter:
             except Exception:
                 pass
             self.heading1_count += 1
-            if self.heading1_count > 1 and getattr(self.preset, 'chapter_page_break', False):
+            if self.heading1_count > 1:
                 pf.page_break_before = True
-            else:
-                pf.page_break_before = False
             
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
             pf.first_line_indent = Cm(0)
-            pf.space_before = Pt(20)
-            pf.space_after = Pt(6)
+            pf.space_before = Pt(24)
+            pf.space_after = Pt(8)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading1_size, bold=True, color_rgb=self.preset.heading_color_rgb)
+
 
             
         elif style_type in ["Subheading", "Heading 2"]:
