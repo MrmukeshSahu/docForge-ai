@@ -28,7 +28,8 @@ class StylePreset:
         add_chapter_header: bool = True,
         body_alignment: str = "JUSTIFY",
         two_column_layout: bool = False,
-        insert_cover_page: bool = False
+        insert_cover_page: bool = False,
+        chapter_page_break: bool = False
     ):
         self.name = name
         self.description = description
@@ -54,6 +55,8 @@ class StylePreset:
         self.body_alignment = body_alignment
         self.two_column_layout = two_column_layout
         self.insert_cover_page = insert_cover_page
+        self.chapter_page_break = chapter_page_break
+
 
 
     def to_dict(self) -> Dict[str, Any]:
