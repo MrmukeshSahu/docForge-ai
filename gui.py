@@ -442,8 +442,10 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         self.single_status_lbl = ctk.CTkLabel(left_box, text="Ready to format document", font=ctk.CTkFont(size=13, weight="bold"), text_color=TEXT_MUTED)
         self.single_status_lbl.pack(pady=(0, 6))
 
-        # Direct 1-Click Open File & Folder Buttons (Appears on Success)
+        # Direct 1-Click Open File & Folder Action Buttons (Permanently Visible)
         self.post_action_row = ctk.CTkFrame(left_box, fg_color="transparent")
+        self.post_action_row.pack(anchor="center", pady=(6, 12))
+
         self.open_file_btn = ctk.CTkButton(
             self.post_action_row, 
             text="📄 Open Formatted File", 
@@ -469,6 +471,7 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             width=180
         )
         self.open_folder_btn.pack(side="left", padx=8)
+
 
 
 
@@ -982,13 +985,9 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             return
 
         self.cancel_requested = False
-        self.post_action_row.pack_forget()
         self.start_btn.configure(state="disabled", text="PROCESSING DOCUMENT...")
         self.single_status_lbl.configure(text="Processing document...", text_color=ACCENT_BLUE)
         self.progress_bar.set(0.05)
-
-
-
         threading.Thread(target=self._run_single_formatting_thread, daemon=True).start()
 
     def _run_single_formatting_thread(self):
@@ -1152,13 +1151,14 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
 
     def _on_single_success(self, elapsed, count):
         self.progress_bar.set(1.0)
-        self.single_status_lbl.configure(text=f"Success! Formatted {count} elements in {elapsed:.1f}s", text_color=ACCENT_GREEN)
+        self.single_status_lbl.configure(
+            text=f"🎉 Formatting Complete! Formatted {count} elements in {elapsed:.1f}s — Click below to open file", 
+            text_color=ACCENT_GREEN
+        )
         self.start_btn.configure(state="normal", text="🚀 START FORMATTING")
-        
-        # Show Direct 1-Click Open File & Folder Action Buttons
-        self.post_action_row.pack(anchor="center", pady=(8, 12))
-        
-        messagebox.showinfo("Success", f"Document formatted successfully in {elapsed:.1f}s!\nSaved to: {self.output_file}")
+        self.open_file_btn.configure(state="normal", fg_color=ACCENT_BLUE)
+        self.open_folder_btn.configure(state="normal")
+
 
     def _on_single_error(self, err):
         self.single_status_lbl.configure(text="Error occurred during processing.", text_color="#EF4444")
