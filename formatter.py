@@ -91,8 +91,12 @@ class DocumentFormatter:
             for table in self.doc.tables:
                 try:
                     table.style = self.preset.table_style
-                except KeyError:
-                    table.style = 'Table Grid'
+                except Exception:
+                    try:
+                        table.style = 'Normal Table'
+                    except Exception:
+                        pass
+
 
 
     def _set_font(self, p, size, bold=None, italic=None, font_name=None, color_rgb=None):

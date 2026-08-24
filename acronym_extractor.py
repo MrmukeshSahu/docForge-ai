@@ -49,8 +49,12 @@ class AcronymGlossaryGenerator:
         r_head.font.color.rgb = RGBColor(15, 23, 42)
 
         table = doc.add_table(rows=1, cols=2)
-        table.style = 'Table Grid'
+        try:
+            table.style = 'Table Grid'
+        except Exception:
+            pass
         hdr_cells = table.rows[0].cells
+
         hdr_cells[0].text = "Acronym"
         hdr_cells[1].text = "Expanded Definition / Meaning"
         hdr_cells[0].paragraphs[0].runs[0].font.bold = True

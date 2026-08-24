@@ -9,8 +9,12 @@ class TableStylingEngine:
     @staticmethod
     def apply_zebra_striping(doc, primary_color_hex: str = "1E293B"):
         for table in doc.tables:
-            table.style = 'Table Grid'
+            try:
+                table.style = 'Table Grid'
+            except Exception:
+                pass
             for idx, row in enumerate(table.rows):
+
                 if idx == 0:
                     # Header row styling
                     trPr = row._tr.get_or_add_trPr()
