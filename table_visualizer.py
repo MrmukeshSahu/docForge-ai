@@ -9,6 +9,9 @@ class TableStylingEngine:
     @staticmethod
     def apply_zebra_striping(doc, primary_color_hex: str = "1E293B"):
         for table in doc.tables:
+            # Skip 1x1 layout container tables (e.g. Cover Page frames)
+            if len(table.rows) <= 1 and len(table.columns) <= 1:
+                continue
             try:
                 table.style = 'Table Grid'
             except Exception:

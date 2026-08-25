@@ -51,8 +51,11 @@ class CoverPageGenerator:
         cell = tbl.cell(0, 0)
         cell.width = Cm(17.5)
         
-        # Apply full master cell Light Blue background shading
+        # Apply full master cell Light Blue background shading (Clearing any pre-existing default shading)
         tcPr = cell._element.get_or_add_tcPr()
+        for child in list(tcPr):
+            if child.tag.endswith('shd'):
+                tcPr.remove(child)
         shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{bg_fill}"/>')
         tcPr.append(shd)
         
@@ -109,6 +112,9 @@ class CoverPageGenerator:
         c_meta = tbl_meta.cell(0, 0)
         c_meta.width = Cm(16.0)
         tcPr_m = c_meta._element.get_or_add_tcPr()
+        for child in list(tcPr_m):
+            if child.tag.endswith('shd'):
+                tcPr_m.remove(child)
         shd_m = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{card_bg}"/>')
         tcPr_m.append(shd_m)
         
