@@ -17,25 +17,31 @@ class CoverPageGenerator:
         else:
             formatted_title = formatted_title.upper()
 
-        # Rich Executive Navy Blue Theme Palette
+        # Light Blue Page Canvas & Navy Blue Card Container Palette
         if preset_id == "modern_corporate":
-            bg_fill = "1E3A8A"       # Rich Navy Blue
-            accent_hex = "60A5FA"    # Soft Light Blue Accent
-            gold_hex = "60A5FA"
-            card_bg = "172554"       # Dark Navy Slate Card
-            card_border = "1E40AF"
+            bg_fill = "EFF6FF"       # Soft Executive Light Blue Page Canvas
+            title_color = RGBColor(30, 58, 138)   # Deep Executive Navy
+            sub_color = RGBColor(59, 130, 246)     # Slate Blue
+            accent_hex = "2563EB"    # Vivid Blue Accent
+            card_bg = "1E3A8A"       # Rich Solid Navy Blue Card
+            card_border = "1D4ED8"
+            card_left = "2563EB"
         elif preset_id == "academic_ieee":
-            bg_fill = "0F172A"       # Slate Navy
-            accent_hex = "38BDF8"    # Cyan Accent
-            gold_hex = "38BDF8"
-            card_bg = "1E293B"
-            card_border = "334155"
+            bg_fill = "F0F9FF"       # Ice Light Blue Page Canvas
+            title_color = RGBColor(15, 23, 42)    # Dark Charcoal Navy
+            sub_color = RGBColor(3, 105, 161)      # Ocean Blue
+            accent_hex = "0284C7"    # Cyan Accent
+            card_bg = "0F172A"       # Dark Navy Slate Card
+            card_border = "1E293B"
+            card_left = "0284C7"
         else: # classic_book / default
-            bg_fill = "1E3A8A"       # Rich Executive Navy Blue
-            accent_hex = "F59E0B"    # Warm Luxury Gold
-            gold_hex = "F59E0B"
-            card_bg = "172554"       # Deep Dark Navy Card
-            card_border = "1E40AF"
+            bg_fill = "E0F2FE"       # Luxury Light Sky Blue Page Canvas
+            title_color = RGBColor(30, 58, 138)   # Deep Executive Navy Blue
+            sub_color = RGBColor(71, 85, 105)     # Slate Grey
+            accent_hex = "F59E0B"    # Warm Luxury Gold Divider
+            card_bg = "1E3A8A"       # Rich Solid Navy Blue Card Box
+            card_border = "1D4ED8"
+            card_left = "F59E0B"     # Gold Left Border Accent
 
         # Create Full-Page Master Cover Table before first_p
         tbl = doc.add_table(rows=1, cols=1)
@@ -45,7 +51,7 @@ class CoverPageGenerator:
         cell = tbl.cell(0, 0)
         cell.width = Cm(17.5)
         
-        # Apply full cell Rich Navy Blue background shading
+        # Apply full master cell Light Blue background shading
         tcPr = cell._element.get_or_add_tcPr()
         shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{bg_fill}"/>')
         tcPr.append(shd)
@@ -64,7 +70,7 @@ class CoverPageGenerator:
         r_top.font.name = 'Arial'
         r_top.font.size = Pt(11)
         r_top.font.bold = True
-        r_top.font.color.rgb = RGBColor(245, 158, 11) if preset_id == "classic_book" else RGBColor(96, 165, 250)
+        r_top.font.color.rgb = RGBColor(30, 58, 138) # Navy Blue Badge Text
 
         # 2. Main Title Paragraph
         p_title = cell.add_paragraph()
@@ -76,7 +82,7 @@ class CoverPageGenerator:
         r_title.font.name = 'Georgia' if preset_id == "classic_book" else 'Arial'
         r_title.font.size = Pt(28)
         r_title.font.bold = True
-        r_title.font.color.rgb = RGBColor(255, 255, 255) # Pure White Text
+        r_title.font.color.rgb = title_color # Deep Navy Blue Title
 
         # 3. Accent Divider Line
         p_rule = cell.add_paragraph()
@@ -94,9 +100,9 @@ class CoverPageGenerator:
         r_sub.font.name = 'Arial'
         r_sub.font.size = Pt(10.5)
         r_sub.font.bold = True
-        r_sub.font.color.rgb = RGBColor(191, 219, 254) # Soft Ice Blue
+        r_sub.font.color.rgb = sub_color
 
-        # 5. Inner Metadata Card Table
+        # 5. Inner Metadata Card Table (Rich Solid Navy Blue Box)
         tbl_meta = cell.add_table(rows=1, cols=1)
         tbl_meta.autofit = False
         
@@ -107,7 +113,7 @@ class CoverPageGenerator:
         tcPr_m.append(shd_m)
         
         # Border for inner metadata card
-        tcBorders = parse_xml(f'<w:tcBorders {nsdecls("w")}><w:top w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/><w:left w:val="single" w:sz="36" w:space="0" w:color="{accent_hex}"/><w:bottom w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/><w:right w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/></w:tcBorders>')
+        tcBorders = parse_xml(f'<w:tcBorders {nsdecls("w")}><w:top w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/><w:left w:val="single" w:sz="36" w:space="0" w:color="{card_left}"/><w:bottom w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/><w:right w:val="single" w:sz="12" w:space="0" w:color="{card_border}"/></w:tcBorders>')
         tcPr_m.append(tcBorders)
 
         p_m = c_meta.paragraphs[0]
@@ -120,18 +126,18 @@ class CoverPageGenerator:
         r_m1.font.name = 'Arial'
         r_m1.font.size = Pt(10.5)
         r_m1.font.bold = True
-        r_m1.font.color.rgb = RGBColor(248, 250, 252) # White
+        r_m1.font.color.rgb = RGBColor(255, 255, 255) # Pure White
 
         r_m2 = p_m.add_run(f"{author}\n")
         r_m2.font.name = 'Arial'
         r_m2.font.size = Pt(10.5)
-        r_m2.font.color.rgb = RGBColor(219, 234, 254) # Soft Blue
+        r_m2.font.color.rgb = RGBColor(219, 234, 254) # Soft Light Blue
 
         r_m3 = p_m.add_run("DATE OF PUBLICATION: ")
         r_m3.font.name = 'Arial'
         r_m3.font.size = Pt(10.5)
         r_m3.font.bold = True
-        r_m3.font.color.rgb = RGBColor(248, 250, 252)
+        r_m3.font.color.rgb = RGBColor(255, 255, 255)
 
         r_m4 = p_m.add_run(f"{time.strftime('%B %d, %Y')}\n")
         r_m4.font.name = 'Arial'
@@ -142,7 +148,7 @@ class CoverPageGenerator:
         r_m5.font.name = 'Arial'
         r_m5.font.size = Pt(10.5)
         r_m5.font.bold = True
-        r_m5.font.color.rgb = RGBColor(248, 250, 252)
+        r_m5.font.color.rgb = RGBColor(255, 255, 255)
 
         r_m6 = p_m.add_run("Verified Studio Master Output (100% Offline ML Formatted)")
         r_m6.font.name = 'Arial'
