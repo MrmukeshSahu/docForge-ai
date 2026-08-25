@@ -19,13 +19,6 @@ def process_single_file(input_path: str, output_path: str, preset_id: str = "cla
     # Load Document
     doc = docx.Document(input_path)
 
-    # 0. Cover Page Generation if requested
-    if cover:
-        from cover_page import CoverPageGenerator
-        print("[*] Inserting Cover & Title Page...")
-        title_str = os.path.splitext(os.path.basename(input_path))[0]
-        CoverPageGenerator.insert_cover_page(doc, title=title_str, preset_id=preset_id)
-
     # 1. Clean Document
     print("[*] Cleaning typography and formatting...")
     cleaner = DocumentCleaner(doc, title_case_headings=title_case, bullet_standardization=bullet_clean, trailing_whitespace=trailing_clean)
@@ -102,6 +95,22 @@ def process_single_file(input_path: str, output_path: str, preset_id: str = "cla
     pm = PresetManager()
     preset = pm.get_preset(preset_id)
     
+    # Cover Page Generation if requested
+    if cover:
+        from cover_page import CoverPageGenerator
+        print("[*] Generating Cover & Title Page...")
+        doc_title = ""
+        doc_author = ""
+        for el in classified_elements:
+            cls = el.get('classification')
+            if cls == "Title" and not doc_title:
+                doc_title = el.get('text', '').strip()
+            if cls == "Author" and not doc_author:
+                doc_author = el.get('text', '').strip()
+        t_str = doc_title if doc_title else os.path.splitext(os.path.basename(input_path))[0]
+        a_str = doc_author if doc_author else "docForge Publication Engine"
+        CoverPageGenerator.insert_cover_page(doc, title=t_str, author=a_str, preset_id=preset_id)
+
     formatter = DocumentFormatter(doc, preset=preset)
     formatter.format_elements(classified_elements)
     formatter.save(output_path)

@@ -1148,8 +1148,18 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             if self.opt_cover_page.get():
                 from cover_page import CoverPageGenerator
                 self.log_message("📝 Inserting Title & Cover Page...")
-                t_str = os.path.splitext(os.path.basename(self.input_file))[0]
-                CoverPageGenerator.insert_cover_page(doc, title=t_str, preset_id=self.active_preset_id)
+                doc_title = ""
+                doc_author = ""
+                if self.classified_elements:
+                    for el in self.classified_elements:
+                        cls = el.get('classification')
+                        if cls == "Title" and not doc_title:
+                            doc_title = el.get('text', '').strip()
+                        if cls == "Author" and not doc_author:
+                            doc_author = el.get('text', '').strip()
+                t_str = doc_title if doc_title else os.path.splitext(os.path.basename(self.input_file))[0]
+                a_str = doc_author if doc_author else "docForge Publication Engine"
+                CoverPageGenerator.insert_cover_page(doc, title=t_str, author=a_str, preset_id=self.active_preset_id)
 
             preset = self.preset_manager.get_preset(self.active_preset_id)
             self.after(0, self.single_status_lbl.configure, {"text": f"Applying '{preset.name}' typography..."})
