@@ -104,13 +104,6 @@ def process_single_file(input_path: str, output_path: str, preset_id: str = "cla
     
     formatter = DocumentFormatter(doc, preset=preset)
     formatter.format_elements(classified_elements)
-    
-    # Watermark application (Applied after formatting layout to prevent being overwritten by header resets)
-    if watermark_text:
-        from watermark import WatermarkGenerator
-        print(f"[*] Applying Watermark: '{watermark_text}'...")
-        WatermarkGenerator.apply_watermark(doc, watermark_text)
-
     formatter.save(output_path)
     
     # 5. Multi-format Exporter

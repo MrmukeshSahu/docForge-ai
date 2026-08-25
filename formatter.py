@@ -56,27 +56,11 @@ class DocumentFormatter:
                 footer.paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
                 self._add_page_number(footer.paragraphs[0])
             
-            # Header: Book Title & STYLEREF
+            # Header setup initialized cleanly
             if self.preset.add_chapter_header:
                 header = section.header
                 if not header.paragraphs:
                     header.add_paragraph()
-                hp = header.paragraphs[0]
-                hp.text = ""
-                
-                hp.add_run("Manuscript Title\t\t")
-                # STYLEREF OXML for dynamic current chapter
-                fldChar1 = parse_xml(r'<w:fldChar %s w:fldCharType="begin"/>' % nsdecls('w'))
-                instrText = parse_xml(r'<w:instrText %s xml:space="preserve"> STYLEREF "Heading 1" \* MERGEFORMAT </w:instrText>' % nsdecls('w'))
-                fldChar2 = parse_xml(r'<w:fldChar %s w:fldCharType="separate"/>' % nsdecls('w'))
-                fldChar3 = parse_xml(r'<w:fldChar %s w:fldCharType="end"/>' % nsdecls('w'))
-                
-                run_style = hp.add_run()
-                r_xml = run_style._r
-                r_xml.append(fldChar1)
-                r_xml.append(instrText)
-                r_xml.append(fldChar2)
-                r_xml.append(fldChar3)
 
     def _add_page_number(self, paragraph):
         p_xml = paragraph._p
@@ -311,7 +295,53 @@ class DocumentFormatter:
         shd = parse_xml(r'<w:shd {} w:val="clear" w:color="auto" w:fill="FFFF00"/>'.format(nsdecls('w')))
         rPr.append(shd)
 
+    def _update_headers(self, classified_elements):
+        if not self.preset.add_chapter_header:
+            return
+
+        doc_title = ""
+        has_h1 = False
+        for el in classified_elements:
+            cls = el.get('classification')
+            if cls == "Title" and not doc_title:
+                doc_title = el.get('text', '').strip()
+            if cls in ["Heading 1", "References Heading"]:
+                has_h1 = True
+
+        header_title = doc_title if doc_title else ""
+
+        for section in self.doc.sections:
+            header = section.header
+            if not header.paragraphs:
+                header.add_paragraph()
+            hp = header.paragraphs[0]
+            hp.text = ""
+            
+            if has_h1:
+                title_prefix = f"{header_title}\t\t" if header_title else "\t\t"
+                hp.add_run(title_prefix)
+                fldChar1 = parse_xml(r'<w:fldChar %s w:fldCharType="begin"/>' % nsdecls('w'))
+                instrText = parse_xml(r'<w:instrText %s xml:space="preserve"> STYLEREF "Heading 1" \* MERGEFORMAT </w:instrText>' % nsdecls('w'))
+                fldChar2 = parse_xml(r'<w:fldChar %s w:fldCharType="separate"/>' % nsdecls('w'))
+                fldChar3 = parse_xml(r'<w:fldChar %s w:fldCharType="end"/>' % nsdecls('w'))
+                
+                run_style = hp.add_run()
+                r_xml = run_style._r
+                r_xml.append(fldChar1)
+                r_xml.append(instrText)
+                r_xml.append(fldChar2)
+                r_xml.append(fldChar3)
+            else:
+                if header_title:
+                    run = hp.add_run(header_title)
+                    hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+                    run.font.name = self.preset.font_family
+                    run.font.size = Pt(9)
+                    run.font.italic = True
+                    run.font.color.rgb = RGBColor(100, 116, 139)
+
     def format_elements(self, elements_with_classes):
+        self._update_headers(elements_with_classes)
         in_references = False
         fig_counter = 0
         table_counter = 0

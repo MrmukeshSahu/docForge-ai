@@ -81,7 +81,6 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         self.opt_cover_page = ctk.BooleanVar(value=False)
         self.opt_zip_export = ctk.BooleanVar(value=False)
         self.opt_generate_diff = ctk.BooleanVar(value=True)
-        self.opt_watermark = ctk.StringVar(value="")
         self.opt_acronyms = ctk.BooleanVar(value=False)
         self.opt_parallel_batch = ctk.BooleanVar(value=True)
         self.opt_export_format = ctk.StringVar(value="all")
@@ -386,13 +385,7 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
             text_color="#FFFFFF"
         ).pack(side="left", fill="x", expand=True)
 
-        # Row 4: Watermark Entry
-        opt_wm = ctk.CTkFrame(dest_card, fg_color="transparent")
-        opt_wm.pack(fill="x", padx=24, pady=6)
-        ctk.CTkLabel(opt_wm, text="💧 Watermark:", text_color=TEXT_MAIN, font=ctk.CTkFont(size=13, weight="bold"), width=110, anchor="w").pack(side="left")
-        ctk.CTkEntry(opt_wm, textvariable=self.opt_watermark, placeholder_text="e.g. CONFIDENTIAL / DRAFT / INTERNAL ONLY", height=34).pack(side="left", fill="x", expand=True)
-
-        # Row 5: Feature Checkboxes (2x2 Clean Layout)
+        # Row 4: Feature Checkboxes (2x2 Clean Layout)
         opt_chk_box = ctk.CTkFrame(dest_card, fg_color="transparent")
         opt_chk_box.pack(anchor="center", pady=(10, 12))
 
@@ -1164,13 +1157,6 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
 
             formatter = DocumentFormatter(doc, preset=preset)
             formatter.format_elements(self.classified_elements)
-
-            # Watermark application (APPLIED AFTER FORMATTING LAYOUT TO PREVENT BEING OVERWRITTEN BY HEADER RESETS)
-            wm_text = self.opt_watermark.get().strip()
-            if wm_text:
-                from watermark import WatermarkGenerator
-                self.log_message(f"💧 Applying Watermark: '{wm_text}'...")
-                WatermarkGenerator.apply_watermark(doc, wm_text)
 
             formatter.save(self.output_file)
             self.log_message(f"✓ Saved formatted DOCX: {os.path.basename(self.output_file)}")
