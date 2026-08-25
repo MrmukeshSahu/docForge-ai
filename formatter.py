@@ -2,8 +2,8 @@ import docx
 import re
 from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.oxml import parse_xml
-from docx.oxml.ns import nsdecls
+from docx.oxml import parse_xml, OxmlElement
+from docx.oxml.ns import nsdecls, qn
 from presets import BUILTIN_PRESETS, StylePreset
 
 class DocumentFormatter:
@@ -15,6 +15,16 @@ class DocumentFormatter:
         self.left_margin = Cm(self.preset.left_margin_cm)
         self.right_margin = Cm(self.preset.right_margin_cm)
         self.heading1_count = 0
+        # Configure Normal document style defaults
+        try:
+            normal_style = self.doc.styles['Normal']
+            normal_style.font.name = self.preset.font_family
+            normal_style.font.size = Pt(self.preset.body_size)
+            if self.preset.body_alignment == "JUSTIFY":
+                normal_style.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        except Exception:
+            pass
+
         self._setup_page_layout()
         self._format_tables()
 
@@ -115,6 +125,19 @@ class DocumentFormatter:
             font.color.rgb = RGBColor(*target_color)
             if bold is not None: font.bold = bold
             if italic is not None: font.italic = italic
+
+            # Force OXML w:rFonts attributes & strip theme font references to prevent Cambria/Calibri fallback in MS Word
+            rPr = run._r.get_or_add_rPr()
+            rFonts = rPr.find(qn('w:rFonts'))
+            if rFonts is None:
+                rFonts = OxmlElement('w:rFonts')
+                rPr.append(rFonts)
+            rFonts.set(qn('w:ascii'), target_font)
+            rFonts.set(qn('w:hAnsi'), target_font)
+            rFonts.set(qn('w:cs'), target_font)
+            for attr in ['asciiTheme', 'hAnsiTheme', 'cstheme', 'eastAsiaTheme']:
+                if qn(f'w:{attr}') in rFonts.attrib:
+                    del rFonts.attrib[qn(f'w:{attr}')]
                 
         # Auto-Fit Media Logic
         max_width = self.page_width - self.left_margin - self.right_margin
