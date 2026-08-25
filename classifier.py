@@ -103,11 +103,19 @@ class ParagraphClassifier:
         if is_quote_style or (text.startswith('"') and text.endswith('"') and word_count > 15) or (text.startswith('“') and text.endswith('”') and word_count > 15):
             return "Blockquote", 0.90, False, "Matched Blockquote style or enclosed quotation"
 
-        # 0. NLTK NER Hard Rule for Author
-        if self.paragraph_count <= 6 and word_count < 10 and self.has_person_entity(text):
-            return "Author", 0.95, False, "Hard Rule: Detected Named Person entity near title"
+        # 0. Hard Rule: Main Document Title (First non-list paragraph)
+        if self.paragraph_count == 1 and word_count <= 35 and not text.startswith(('http', 'www', 'Figure', 'Table')) and not re.match(r'^[\*\-\+•\d]', text):
+            return "Title", 1.0, False, "Hard Rule: First paragraph identified as Document Main Title"
 
-        # 1. Hard Rule: References Heading
+        # 0.5. Hard Rule: Author By-line near top of document
+        if self.paragraph_count <= 5 and (re.match(r'^(by|author|written by|created by)\s+', lower_text) or (word_count < 25 and self.has_person_entity(text))):
+            return "Author", 0.98, False, "Hard Rule: Detected Author by-line near title"
+
+        # 1. Hard Rule: Chapter / Heading 1
+        if re.match(r'^(chapter|ch\.)\s*[\d\w]+', lower_text) or re.match(r'^\d+\.\s+[A-Z]', text) or re.match(r'^chapter\s+[ivxlcdm]+', lower_text):
+            return "Heading 1", 0.98, False, "Hard Rule: Matched Chapter / Heading 1 pattern"
+
+        # 1.5. Hard Rule: References Heading
         if lower_text in ["references", "bibliography", "works cited"]:
             return "References Heading", 1.0, False, "Hard Rule: Matched reference section keyword"
             
