@@ -10,32 +10,32 @@ class CoverPageGenerator:
     def insert_cover_page(doc, title: str = "Document Title", author: str = "docForge Publication Engine", preset_id: str = "classic_book"):
         first_p = doc.paragraphs[0] if doc.paragraphs else doc.add_paragraph()
         
-        # Clean title string
+        # Clean title string while preserving spaces
         formatted_title = title.replace('_', ' ').replace('-', ' ').strip()
         if not formatted_title or formatted_title.lower() in ["mock input", "input", "document", "chapter 1"]:
             formatted_title = "OFFICIAL PUBLICATION MANUSCRIPT"
         else:
             formatted_title = formatted_title.upper()
 
-        # Preset-specific color themes
+        # Rich Executive Navy Blue Theme Palette
         if preset_id == "modern_corporate":
-            bg_fill = "0F172A"       # Deep Executive Dark
-            accent_hex = "2563EB"    # Vivid Blue
-            gold_hex = "60A5FA"      # Light Blue Accent
-            card_bg = "1E293B"       # Slate Card
-            card_border = "334155"
+            bg_fill = "1E3A8A"       # Rich Navy Blue
+            accent_hex = "60A5FA"    # Soft Light Blue Accent
+            gold_hex = "60A5FA"
+            card_bg = "172554"       # Dark Navy Slate Card
+            card_border = "1E40AF"
         elif preset_id == "academic_ieee":
-            bg_fill = "0F172A"       # Charcoal Black
-            accent_hex = "38BDF8"    # Cyan
+            bg_fill = "0F172A"       # Slate Navy
+            accent_hex = "38BDF8"    # Cyan Accent
             gold_hex = "38BDF8"
             card_bg = "1E293B"
             card_border = "334155"
         else: # classic_book / default
-            bg_fill = "0F172A"       # Deep Slate Navy
-            accent_hex = "F59E0B"    # Luxury Gold
+            bg_fill = "1E3A8A"       # Rich Executive Navy Blue
+            accent_hex = "F59E0B"    # Warm Luxury Gold
             gold_hex = "F59E0B"
-            card_bg = "1E293B"       # Dark Slate Card
-            card_border = "334155"
+            card_bg = "172554"       # Deep Dark Navy Card
+            card_border = "1E40AF"
 
         # Create Full-Page Master Cover Table before first_p
         tbl = doc.add_table(rows=1, cols=1)
@@ -45,7 +45,7 @@ class CoverPageGenerator:
         cell = tbl.cell(0, 0)
         cell.width = Cm(17.5)
         
-        # Apply full cell background shading
+        # Apply full cell Rich Navy Blue background shading
         tcPr = cell._element.get_or_add_tcPr()
         shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{bg_fill}"/>')
         tcPr.append(shd)
@@ -74,7 +74,7 @@ class CoverPageGenerator:
         
         r_title = p_title.add_run(formatted_title)
         r_title.font.name = 'Georgia' if preset_id == "classic_book" else 'Arial'
-        r_title.font.size = Pt(30)
+        r_title.font.size = Pt(28)
         r_title.font.bold = True
         r_title.font.color.rgb = RGBColor(255, 255, 255) # Pure White Text
 
@@ -94,7 +94,7 @@ class CoverPageGenerator:
         r_sub.font.name = 'Arial'
         r_sub.font.size = Pt(10.5)
         r_sub.font.bold = True
-        r_sub.font.color.rgb = RGBColor(148, 163, 184) # Slate Soft Grey
+        r_sub.font.color.rgb = RGBColor(191, 219, 254) # Soft Ice Blue
 
         # 5. Inner Metadata Card Table
         tbl_meta = cell.add_table(rows=1, cols=1)
@@ -125,7 +125,7 @@ class CoverPageGenerator:
         r_m2 = p_m.add_run(f"{author}\n")
         r_m2.font.name = 'Arial'
         r_m2.font.size = Pt(10.5)
-        r_m2.font.color.rgb = RGBColor(203, 213, 225) # Soft Blue Grey
+        r_m2.font.color.rgb = RGBColor(219, 234, 254) # Soft Blue
 
         r_m3 = p_m.add_run("DATE OF PUBLICATION: ")
         r_m3.font.name = 'Arial'
@@ -136,7 +136,7 @@ class CoverPageGenerator:
         r_m4 = p_m.add_run(f"{time.strftime('%B %d, %Y')}\n")
         r_m4.font.name = 'Arial'
         r_m4.font.size = Pt(10.5)
-        r_m4.font.color.rgb = RGBColor(203, 213, 225)
+        r_m4.font.color.rgb = RGBColor(219, 234, 254)
 
         r_m5 = p_m.add_run("DOCUMENT VERIFICATION: ")
         r_m5.font.name = 'Arial'
@@ -147,7 +147,7 @@ class CoverPageGenerator:
         r_m6 = p_m.add_run("Verified Studio Master Output (100% Offline ML Formatted)")
         r_m6.font.name = 'Arial'
         r_m6.font.size = Pt(10.5)
-        r_m6.font.color.rgb = RGBColor(203, 213, 225)
+        r_m6.font.color.rgb = RGBColor(219, 234, 254)
 
         # Spacing after metadata card inside master cell
         p_bot_sp = cell.add_paragraph()
