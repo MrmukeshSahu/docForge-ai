@@ -35,9 +35,9 @@ def train_dummy_model():
         X.append([np.random.randint(2, 6), 0.5, np.random.uniform(0.4, 0.9), 0, 0, 1])
         y.append("Heading 3")
         
-    # 4. Body Paragraph (long, low bold, has punct, verbs, nouns)
-    for _ in range(400):
-        X.append([np.random.randint(20, 200), np.random.uniform(0, 0.1), np.random.uniform(0, 0.2), 1, 1, 1])
+    # 4. Body Paragraph (medium/long, low bold, has punct, verbs, nouns)
+    for _ in range(600):
+        X.append([np.random.randint(8, 300), np.random.uniform(0, 0.1), np.random.uniform(0, 0.2), 1, 1, 1])
         y.append("Body Paragraph")
         
     # 5. Caption (short/medium, ends with punct)
@@ -60,9 +60,9 @@ def train_dummy_model():
         X.append([np.random.randint(5, 40), 0.0, 0.0, 0, 1, 1])
         y.append("Code Block")
 
-    # 9. Blockquote (medium, low bold, high punctuation)
-    for _ in range(50):
-        X.append([np.random.randint(15, 60), 0.0, 0.1, 1, 1, 1])
+    # 9. Blockquote (long quotes)
+    for _ in range(20):
+        X.append([np.random.randint(40, 80), 0.0, 0.05, 1, 1, 1])
         y.append("Blockquote")
 
     X = np.array(X)

@@ -1,4 +1,4 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,8 +14,13 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Output & Generated Test Files
+# Output, Temporary & Generated Test Files (.docx, .html, .zip, .pdf, .epub)
 formatted_*
 history_log.json
 mock_input.docx
+*.docx
+*.epub
+*.zip
+*.pdf
 _exclude_from_git/
+test_temp_dir/

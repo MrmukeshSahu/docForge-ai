@@ -93,9 +93,15 @@ class ParagraphClassifier:
         if is_monospace or text.startswith("def ") or text.startswith("class ") or text.startswith("import ") or (text.startswith("```") and text.endswith("```")):
             return "Code Block", 0.95, False, "Matched Code syntax or monospace font"
 
-        # -0.5. Blockquote Rule
-        if is_indented or (text.startswith('"') and text.endswith('"') and word_count > 15):
-            return "Blockquote", 0.85, False, "Matched blockquote indentation or long quote"
+        # -0.8. Hard Rule: List / Bullet / Numbered Item
+        if re.match(r'^[\*\-\+•]\s', text) or re.match(r'^\d+[\.\)]\s+', text):
+            return "List", 0.95, False, "Hard Rule: Matched bullet or numbered list pattern"
+
+        # -0.5. Blockquote Rule (Strict check to prevent normal body paragraphs from turning into Blockquotes)
+        style_name = element.get('style_name', '').lower()
+        is_quote_style = "quote" in style_name or "blockquote" in style_name
+        if is_quote_style or (text.startswith('"') and text.endswith('"') and word_count > 15) or (text.startswith('“') and text.endswith('”') and word_count > 15):
+            return "Blockquote", 0.90, False, "Matched Blockquote style or enclosed quotation"
 
         # 0. NLTK NER Hard Rule for Author
         if self.paragraph_count <= 6 and word_count < 10 and self.has_person_entity(text):
@@ -124,6 +130,11 @@ class ParagraphClassifier:
             confidence = float(max(probabilities))
             
             # Post-processing tweaks (Hybrid approach)
+            style_name = element.get('style_name', '').lower()
+            if prediction == "Blockquote" and not (text.startswith('"') or text.startswith('“') or "quote" in style_name):
+                prediction = "Body Paragraph"
+                confidence = 0.90
+                
             if prediction == "Title" and self.paragraph_count > 5:
                 prediction = "Heading 1"
                 confidence = 0.50 # Forcing review if overridden manually

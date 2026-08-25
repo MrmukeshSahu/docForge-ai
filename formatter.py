@@ -103,13 +103,18 @@ class DocumentFormatter:
         target_font = font_name if font_name else self.preset.font_family
         target_color = color_rgb if color_rgb else self.preset.primary_color_rgb
         
+        if not p.runs and p.text:
+            txt = p.text
+            p.text = ""
+            p.add_run(txt)
+            
         for run in p.runs:
             font = run.font
             font.name = target_font
             font.size = Pt(size)
             font.color.rgb = RGBColor(*target_color)
-            if bold is True: font.bold = True
-            if italic is True: font.italic = True
+            if bold is not None: font.bold = bold
+            if italic is not None: font.italic = italic
                 
         # Auto-Fit Media Logic
         max_width = self.page_width - self.left_margin - self.right_margin
@@ -161,13 +166,13 @@ class DocumentFormatter:
                 pass
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
-            self._set_font(p, self.preset.title_size, bold=True, color_rgb=self.preset.heading_color_rgb)
+            self._set_font(p, self.preset.title_size, bold=True, italic=False, color_rgb=self.preset.heading_color_rgb)
             pf.keep_with_next = True
             
         elif style_type == "Author":
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
-            self._set_font(p, self.preset.body_size + 2)
+            self._set_font(p, self.preset.body_size + 2, bold=False, italic=False)
             if self.preset.add_toc:
                 self._add_toc(p)
             
@@ -185,9 +190,7 @@ class DocumentFormatter:
             pf.space_before = Pt(24)
             pf.space_after = Pt(8)
             pf.keep_with_next = True
-            self._set_font(p, self.preset.heading1_size, bold=True, color_rgb=self.preset.heading_color_rgb)
-
-
+            self._set_font(p, self.preset.heading1_size, bold=True, italic=False, color_rgb=self.preset.heading_color_rgb)
             
         elif style_type in ["Subheading", "Heading 2"]:
             try:
@@ -199,7 +202,7 @@ class DocumentFormatter:
             pf.space_before = Pt(8)
             pf.space_after = Pt(4)
             pf.keep_with_next = True
-            self._set_font(p, self.preset.heading2_size, bold=True, color_rgb=self.preset.heading_color_rgb)
+            self._set_font(p, self.preset.heading2_size, bold=True, italic=False, color_rgb=self.preset.heading_color_rgb)
             
         elif style_type == "Heading 3":
             try:
@@ -212,23 +215,23 @@ class DocumentFormatter:
             pf.space_after = Pt(2)
             pf.keep_with_next = True
             self._set_font(p, self.preset.heading3_size, bold=True, italic=True, color_rgb=self.preset.heading_color_rgb)
-
             
         elif style_type == "Caption":
             pf.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pf.first_line_indent = Cm(0)
             pf.space_before = Pt(4)
             pf.space_after = Pt(6)
-            self._set_font(p, self.preset.caption_size, italic=True)
+            self._set_font(p, self.preset.caption_size, bold=False, italic=True)
             
         elif style_type == "List":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
-            pf.first_line_indent = Cm(0)
-            pf.left_indent = Cm(1.27)
+            pf.left_indent = Cm(0.63)
+            pf.first_line_indent = Cm(-0.63)
+            pf.right_indent = Cm(0)
             pf.line_spacing = self.preset.line_spacing
             pf.space_before = Pt(2)
             pf.space_after = Pt(2)
-            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
+            self._set_font(p, self.preset.body_size, bold=False, italic=False, color_rgb=(0, 0, 0))
             
         elif style_type == "Code Block":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -237,7 +240,7 @@ class DocumentFormatter:
             pf.line_spacing = 1.15
             pf.space_before = Pt(4)
             pf.space_after = Pt(4)
-            self._set_font(p, self.preset.body_size - 1, font_name="Consolas", color_rgb=(15, 23, 42))
+            self._set_font(p, self.preset.body_size - 1, bold=False, italic=False, font_name="Consolas", color_rgb=(15, 23, 42))
             
         elif style_type == "Blockquote":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -247,7 +250,7 @@ class DocumentFormatter:
             pf.line_spacing = self.preset.line_spacing
             pf.space_before = Pt(4)
             pf.space_after = Pt(4)
-            self._set_font(p, self.preset.body_size, italic=True, color_rgb=(51, 65, 85))
+            self._set_font(p, self.preset.body_size, bold=False, italic=True, color_rgb=(51, 65, 85))
             
         elif style_type == "Reference Item":
             pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
@@ -256,10 +259,14 @@ class DocumentFormatter:
             pf.line_spacing = self.preset.line_spacing
             pf.space_before = Pt(3)
             pf.space_after = Pt(3)
-            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
+            self._set_font(p, self.preset.body_size, bold=False, italic=False, color_rgb=(0, 0, 0))
             
         else:
             # Body Paragraph
+            try:
+                p.style = 'Normal'
+            except Exception:
+                pass
             align_enum = WD_ALIGN_PARAGRAPH.JUSTIFY if self.preset.body_alignment == "JUSTIFY" else WD_ALIGN_PARAGRAPH.LEFT
             pf.alignment = align_enum
             pf.first_line_indent = Cm(self.preset.first_line_indent_cm)
@@ -268,7 +275,7 @@ class DocumentFormatter:
             pf.space_after = Pt(4)
             pf.keep_together = False
             pf.widow_control = True
-            self._set_font(p, self.preset.body_size, color_rgb=(0, 0, 0))
+            self._set_font(p, self.preset.body_size, bold=False, italic=False, color_rgb=(0, 0, 0))
 
 
     def add_review_comment(self, p):

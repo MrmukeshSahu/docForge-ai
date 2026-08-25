@@ -311,15 +311,15 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         grid_wrapper = ctk.CTkFrame(frame, fg_color="transparent")
         grid_wrapper.pack(fill="both", expand=True, padx=5, pady=5)
 
-        grid_wrapper.grid_columnconfigure(0, weight=65) # Left Column: Large Controls & Dropzone (65% width)
-        grid_wrapper.grid_columnconfigure(1, weight=35) # Right Column: Active Preset Specs & Engine Info (35% width)
+        grid_wrapper.grid_columnconfigure(0, weight=50) # Left Column: Controls (50% width)
+        grid_wrapper.grid_columnconfigure(1, weight=50) # Right Column: Live Text Preview Studio (50% width)
 
         grid_wrapper.grid_rowconfigure(0, weight=1)
 
         # -------------------------------------------------------------
         # LEFT COLUMN (Large Control Cards & Main Actions)
         # -------------------------------------------------------------
-        left_box = ctk.CTkFrame(grid_wrapper, fg_color="transparent")
+        left_box = ctk.CTkScrollableFrame(grid_wrapper, fg_color="transparent")
         left_box.grid(row=0, column=0, sticky="nsew", padx=(0, 15))
 
         # Top Card: Large Source File & Drag & Drop Zone
@@ -392,14 +392,19 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         ctk.CTkLabel(opt_wm, text="💧 Watermark:", text_color=TEXT_MAIN, font=ctk.CTkFont(size=13, weight="bold"), width=110, anchor="w").pack(side="left")
         ctk.CTkEntry(opt_wm, textvariable=self.opt_watermark, placeholder_text="e.g. CONFIDENTIAL / DRAFT / INTERNAL ONLY", height=34).pack(side="left", fill="x", expand=True)
 
-        # Row 5: Phase 2 & 3 Checkboxes
-        opt_row2 = ctk.CTkFrame(dest_card, fg_color="transparent")
-        opt_row2.pack(anchor="center", pady=(14, 12))
+        # Row 5: Feature Checkboxes (2x2 Clean Layout)
+        opt_chk_box = ctk.CTkFrame(dest_card, fg_color="transparent")
+        opt_chk_box.pack(anchor="center", pady=(10, 12))
 
-        ctk.CTkCheckBox(opt_row2, text="Auto Cover Page", variable=self.opt_cover_page, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
-        ctk.CTkCheckBox(opt_row2, text="1-Click Zip", variable=self.opt_zip_export, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
-        ctk.CTkCheckBox(opt_row2, text="Side Diff", variable=self.opt_generate_diff, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
-        ctk.CTkCheckBox(opt_row2, text="Acronyms Glossary", variable=self.opt_acronyms, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12)).pack(side="left", padx=8)
+        chk_r1 = ctk.CTkFrame(opt_chk_box, fg_color="transparent")
+        chk_r1.pack(anchor="center", pady=3)
+        ctk.CTkCheckBox(chk_r1, text="Auto Cover Page", variable=self.opt_cover_page, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12), width=155).pack(side="left", padx=8)
+        ctk.CTkCheckBox(chk_r1, text="1-Click Zip", variable=self.opt_zip_export, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12), width=155).pack(side="left", padx=8)
+
+        chk_r2 = ctk.CTkFrame(opt_chk_box, fg_color="transparent")
+        chk_r2.pack(anchor="center", pady=3)
+        ctk.CTkCheckBox(chk_r2, text="Side Diff Report", variable=self.opt_generate_diff, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12), width=155).pack(side="left", padx=8)
+        ctk.CTkCheckBox(chk_r2, text="Acronyms Glossary", variable=self.opt_acronyms, text_color=TEXT_MAIN, font=ctk.CTkFont(size=12), width=155).pack(side="left", padx=8)
 
 
         # Large Main Action Buttons Bar
@@ -442,60 +447,117 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         self.single_status_lbl = ctk.CTkLabel(left_box, text="Ready to format document", font=ctk.CTkFont(size=13, weight="bold"), text_color=TEXT_MUTED)
         self.single_status_lbl.pack(pady=(0, 6))
 
-        # Direct 1-Click Open File & Folder Action Buttons (Permanently Visible)
-        self.post_action_row = ctk.CTkFrame(left_box, fg_color="transparent")
-        self.post_action_row.pack(anchor="center", pady=(6, 12))
+        # Direct 1-Click Action Buttons for Formatted File, Text Viewer, Visual Diff, and Folder (2x2 Layout)
+        self.post_action_box = ctk.CTkFrame(left_box, fg_color="transparent")
+        self.post_action_box.pack(fill="x", padx=10, pady=(6, 12))
+
+        act_row1 = ctk.CTkFrame(self.post_action_box, fg_color="transparent")
+        act_row1.pack(anchor="center", pady=3)
 
         self.open_file_btn = ctk.CTkButton(
-            self.post_action_row, 
-            text="📄 Open Formatted File", 
+            act_row1, 
+            text="📄 Open DOCX File", 
             command=self.open_output_file_direct, 
             fg_color=ACCENT_BLUE, 
             hover_color=ACCENT_HOVER, 
             text_color="#FFFFFF",
-            height=42, 
-            font=ctk.CTkFont(size=14, weight="bold"),
-            width=200
+            height=40, 
+            font=ctk.CTkFont(size=13, weight="bold"),
+            width=185
         )
-        self.open_file_btn.pack(side="left", padx=8)
+        self.open_file_btn.pack(side="left", padx=5)
+
+        self.open_text_btn = ctk.CTkButton(
+            act_row1, 
+            text="📖 View Formatted Text", 
+            command=self.open_formatted_text_modal, 
+            fg_color=ACCENT_GREEN, 
+            hover_color="#059669", 
+            text_color="#FFFFFF",
+            height=40, 
+            font=ctk.CTkFont(size=13, weight="bold"),
+            width=185
+        )
+        self.open_text_btn.pack(side="left", padx=5)
+
+        act_row2 = ctk.CTkFrame(self.post_action_box, fg_color="transparent")
+        act_row2.pack(anchor="center", pady=3)
+
+        self.open_diff_btn = ctk.CTkButton(
+            act_row2, 
+            text="🌐 View Visual Diff", 
+            command=self.open_html_diff_direct, 
+            fg_color=SIDEBAR_BG, 
+            hover_color=CARD_BG, 
+            text_color=TEXT_MAIN, 
+            height=40, 
+            font=ctk.CTkFont(size=13, weight="bold"),
+            width=185
+        )
+        self.open_diff_btn.pack(side="left", padx=5)
 
         self.open_folder_btn = ctk.CTkButton(
-            self.post_action_row, 
+            act_row2, 
             text="📁 Open Save Folder", 
             command=self.open_output_folder_direct, 
             fg_color=SIDEBAR_BG, 
             hover_color=CARD_BG, 
             text_color=TEXT_MAIN, 
-            height=42, 
-            font=ctk.CTkFont(size=14, weight="bold"),
-            width=180
+            height=40, 
+            font=ctk.CTkFont(size=13, weight="bold"),
+            width=185
         )
-        self.open_folder_btn.pack(side="left", padx=8)
-
-
-
-
+        self.open_folder_btn.pack(side="left", padx=5)
 
         # -------------------------------------------------------------
-        # RIGHT COLUMN (Dynamic Preset Visualizer & Engine Status)
+        # RIGHT COLUMN (Live Text Preview Studio & Specs)
         # -------------------------------------------------------------
         right_box = ctk.CTkFrame(grid_wrapper, fg_color="transparent")
         right_box.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
 
-        # Card 1: Active Preset Preview & Specs
-        preset_card = ctk.CTkFrame(right_box, fg_color=CARD_BG, border_color=CARD_BORDER, border_width=1, corner_radius=12)
-        preset_card.pack(fill="x", pady=(0, 12), ipady=10)
+        # Main Card: Live Dual Text Preview Studio
+        self.preview_card = ctk.CTkFrame(right_box, fg_color=CARD_BG, border_color=CARD_BORDER, border_width=1, corner_radius=12)
+        self.preview_card.pack(fill="both", expand=True, pady=(0, 10))
 
-        ctk.CTkLabel(preset_card, text="🎨 Active Preset Specs", font=ctk.CTkFont(size=15, weight="bold"), text_color=ACCENT_BLUE).pack(anchor="w", padx=16, pady=(12, 6))
+        prev_head = ctk.CTkFrame(self.preview_card, fg_color="transparent")
+        prev_head.pack(fill="x", padx=14, pady=(10, 6))
+
+        ctk.CTkLabel(prev_head, text="👁️ Live Text Preview Studio", font=ctk.CTkFont(size=15, weight="bold"), text_color=ACCENT_BLUE).pack(side="left")
+
+        self.preview_mode_var = ctk.StringVar(value="📄 Unformatted Raw Input")
+        self.preview_segmented = ctk.CTkSegmentedButton(
+            prev_head, 
+            values=["📄 Unformatted Raw Input", "✨ Formatted Output"], 
+            variable=self.preview_mode_var,
+            command=self._on_preview_tab_switch,
+            height=28
+        )
+        self.preview_segmented.pack(side="right")
+
+        self.live_preview_textbox = ctk.CTkTextbox(
+            self.preview_card, 
+            font=ctk.CTkFont(family="Consolas", size=11), 
+            wrap="word", 
+            fg_color=INPUT_BG, 
+            text_color=TEXT_MAIN
+        )
+        self.live_preview_textbox.pack(fill="both", expand=True, padx=12, pady=(4, 12))
+        self.live_preview_textbox.insert("1.0", "Select or drop a .docx file on the left panel to see unformatted raw text preview...")
+
+        # Card 2: Active Preset Specs & Engine Info
+        preset_card = ctk.CTkFrame(right_box, fg_color=CARD_BG, border_color=CARD_BORDER, border_width=1, corner_radius=12)
+        preset_card.pack(fill="x", pady=0, ipady=6)
+
+        ctk.CTkLabel(preset_card, text="🎨 Active Preset Specs", font=ctk.CTkFont(size=13, weight="bold"), text_color=ACCENT_BLUE).pack(anchor="w", padx=14, pady=(8, 2))
         
         self.preset_info_lbl = ctk.CTkLabel(
             preset_card, 
             text="", 
             justify="left", 
-            font=ctk.CTkFont(size=12), 
+            font=ctk.CTkFont(size=11), 
             text_color=TEXT_MAIN
         )
-        self.preset_info_lbl.pack(anchor="w", padx=16, pady=(0, 10))
+        self.preset_info_lbl.pack(anchor="w", padx=14, pady=(0, 6))
         self._update_preset_info_card(self.preset_menu_var.get())
 
         # Card 2: ML Classifier & Security Specs
@@ -864,6 +926,36 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
                 base_name = os.path.basename(filepath)
                 self.output_file = os.path.join(dir_name, f"formatted_{base_name}")
                 self.output_lbl.configure(text=os.path.basename(self.output_file), text_color=TEXT_MAIN)
+            self._load_unformatted_preview()
+
+    def _load_unformatted_preview(self):
+        if self.input_file and os.path.exists(self.input_file):
+            try:
+                import docx
+                doc = docx.Document(self.input_file)
+                paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
+                self.raw_unformatted_text = "\n\n".join(paragraphs[:60])
+                if len(doc.paragraphs) > 60:
+                    self.raw_unformatted_text += f"\n\n... [{len(doc.paragraphs)-60} more paragraphs in document]"
+            except Exception as e:
+                self.raw_unformatted_text = f"Could not read unformatted preview: {e}"
+        else:
+            self.raw_unformatted_text = "No file selected."
+        self.preview_mode_var.set("📄 Unformatted Raw Input")
+        self._update_preview_display()
+
+    def _on_preview_tab_switch(self, value=None):
+        self._update_preview_display()
+
+    def _update_preview_display(self):
+        if hasattr(self, 'live_preview_textbox'):
+            self.live_preview_textbox.delete("1.0", "end")
+            mode = self.preview_mode_var.get()
+            if "Unformatted" in mode:
+                txt = getattr(self, 'raw_unformatted_text', "Select or drop a .docx file above to view unformatted text preview...")
+            else:
+                txt = getattr(self, 'formatted_output_text', "Run formatting to view formatted publication output preview...")
+            self.live_preview_textbox.insert("1.0", txt)
 
     def select_output_folder(self):
         dirpath = filedialog.askdirectory(title="Select Save Folder")
@@ -892,6 +984,7 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
                 base_name = os.path.basename(filepath)
                 self.output_file = os.path.join(dir_name, f"formatted_{base_name}")
                 self.output_lbl.configure(text=os.path.basename(self.output_file), text_color=TEXT_MAIN)
+            self._load_unformatted_preview()
 
     def select_batch_input(self):
         dirpath = filedialog.askdirectory()
@@ -1038,13 +1131,6 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
 
             if self.cancel_requested: return
 
-            # Watermark application
-            wm_text = self.opt_watermark.get().strip()
-            if wm_text:
-                from watermark import WatermarkGenerator
-                self.log_message(f"💧 Applying Watermark: '{wm_text}'...")
-                WatermarkGenerator.apply_watermark(doc, wm_text)
-
             # Acronyms & Glossary Table Insertion
             if self.opt_acronyms.get():
                 from acronym_extractor import AcronymGlossaryGenerator
@@ -1072,13 +1158,20 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
                 t_str = os.path.splitext(os.path.basename(self.input_file))[0]
                 CoverPageGenerator.insert_cover_page(doc, title=t_str, preset_id=self.active_preset_id)
 
-
             preset = self.preset_manager.get_preset(self.active_preset_id)
             self.after(0, self.single_status_lbl.configure, {"text": f"Applying '{preset.name}' typography..."})
             self.log_message(f"📐 Applying Preset '{preset.name}' layout & OXML dynamic headers/footers...")
 
             formatter = DocumentFormatter(doc, preset=preset)
             formatter.format_elements(self.classified_elements)
+
+            # Watermark application (APPLIED AFTER FORMATTING LAYOUT TO PREVENT BEING OVERWRITTEN BY HEADER RESETS)
+            wm_text = self.opt_watermark.get().strip()
+            if wm_text:
+                from watermark import WatermarkGenerator
+                self.log_message(f"💧 Applying Watermark: '{wm_text}'...")
+                WatermarkGenerator.apply_watermark(doc, wm_text)
+
             formatter.save(self.output_file)
             self.log_message(f"✓ Saved formatted DOCX: {os.path.basename(self.output_file)}")
 
@@ -1140,6 +1233,57 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
         else:
             messagebox.showerror("Error", "Formatted output file not found on disk.")
 
+    def open_formatted_text_modal(self):
+        """Opens an in-app popup window displaying the formatted text content."""
+        content = ""
+        if self.output_file:
+            base_out, _ = os.path.splitext(self.output_file)
+            txt_path = base_out + ".txt"
+            md_path = base_out + ".md"
+            
+            if os.path.exists(txt_path):
+                with open(txt_path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+            elif os.path.exists(md_path):
+                with open(md_path, "r", encoding="utf-8", errors="ignore") as f:
+                    content = f.read()
+
+        if not content and self.classified_elements:
+            content = "\n\n".join([f"[{el.get('classification', 'Body')}] {el.get('text', '')}" for el in self.classified_elements])
+
+        if not content:
+            messagebox.showinfo("Formatted Text Viewer", "No formatted text available yet. Please select an input file and start formatting.")
+            return
+
+        modal = ctk.CTkToplevel(self)
+        modal.title("📄 Formatted Text Content Viewer — docForge Studio")
+        modal.geometry("800x580")
+        modal.lift()
+        modal.focus_force()
+
+        lbl_head = ctk.CTkLabel(modal, text="📖 Formatted Manuscript Text Content", font=ctk.CTkFont(size=16, weight="bold"), text_color=ACCENT_BLUE)
+        lbl_head.pack(anchor="w", padx=20, pady=(15, 5))
+
+        txt_box = ctk.CTkTextbox(modal, font=ctk.CTkFont(family="Consolas", size=12), wrap="word")
+        txt_box.pack(fill="both", expand=True, padx=20, pady=10)
+        txt_box.insert("1.0", content)
+
+        btn_close = ctk.CTkButton(modal, text="Close Window", command=modal.destroy, fg_color=ACCENT_BLUE, height=36)
+        btn_close.pack(pady=(0, 15))
+
+    def open_html_diff_direct(self):
+        """Opens the interactive side-by-side HTML visual diff report in web browser."""
+        if self.output_file:
+            base_out, _ = os.path.splitext(self.output_file)
+            diff_path = base_out + "_diff.html"
+            if os.path.exists(diff_path):
+                import webbrowser
+                webbrowser.open(diff_path)
+            else:
+                messagebox.showwarning("Visual Diff Report", f"Diff report file '{os.path.basename(diff_path)}' was not found on disk.")
+        else:
+            messagebox.showwarning("Warning", "Please process a document first.")
+
     def open_output_folder_direct(self):
         if self.output_file:
             folder = os.path.dirname(self.output_file)
@@ -1152,12 +1296,26 @@ class App(TkinterDnDApp if has_dnd else ctk.CTk):
     def _on_single_success(self, elapsed, count):
         self.progress_bar.set(1.0)
         self.single_status_lbl.configure(
-            text=f"🎉 Formatting Complete! Formatted {count} elements in {elapsed:.1f}s — Click below to open file", 
+            text=f"🎉 Formatting Complete! Formatted {count} elements in {elapsed:.1f}s — Use action buttons below:", 
             text_color=ACCENT_GREEN
         )
         self.start_btn.configure(state="normal", text="🚀 START FORMATTING")
         self.open_file_btn.configure(state="normal", fg_color=ACCENT_BLUE)
+        self.open_text_btn.configure(state="normal", fg_color=ACCENT_GREEN)
+        self.open_diff_btn.configure(state="normal")
         self.open_folder_btn.configure(state="normal")
+
+        # Update Live Formatted Output Text Preview
+        if self.classified_elements:
+            lines = []
+            for el in self.classified_elements[:60]:
+                cls = el.get('classification', 'Body')
+                lines.append(f"[{cls.upper()}] {el.get('text', '')}")
+            self.formatted_output_text = "\n\n".join(lines)
+            if len(self.classified_elements) > 60:
+                self.formatted_output_text += f"\n\n... [{len(self.classified_elements)-60} more elements formatted]"
+        self.preview_mode_var.set("✨ Formatted Output")
+        self._update_preview_display()
 
 
     def _on_single_error(self, err):
